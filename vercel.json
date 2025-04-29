@@ -1,11 +1,19 @@
 {
-  "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/dist/src" }],
-  "builds": [
-    {
-      "src": "dist/src/index.js",
-      "use": "@vercel/node"
-    }
-  ]
-
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/src/index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/public/(.*)",
+        "dest": "/public/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "dist/src/index.js"
+      }
+    ]
+  }
