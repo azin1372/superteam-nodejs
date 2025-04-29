@@ -29,6 +29,10 @@ expressConfig(app, express);
 
 const Router = express.Router();
 
+Router.get("/", (req, res) => {
+  res.send("Express on Vercel");
+});
+
 Router.get("/threat/considerations/:address", getThreatConsiderations);
 Router.get("/bubble-map/:address", GetBubbleMap);
 Router.get("/token-info/:address", MakeTokenData);
