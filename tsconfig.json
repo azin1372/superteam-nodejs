@@ -108,6 +108,7 @@
     "src/**/*",
     "types/**/*",
     "config/**/*",
+    "/index.js"
   ],
   "exclude": [
     "node_modules"
