@@ -5,16 +5,19 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-const MONGO_URL = "mongodb+srv://farhad:<KTRjOcoilyWv5cyh>@superteam.ueat2qt.mongodb.net";
+// const MONGO_URL = "mongodb+srv://farhad:<KTRjOcoilyWv5cyh>@superteam.ueat2qt.mongodb.net";
+// const MONGO_URL = "mongodb://localhost:27017/superteam";
+const MONGO_URL = "mongodb://limaniex_farhad:mynameisFarhad1372@localhost:27017/limaniex_superteam?authSource=admin";
+
 
 export const mongoConnection = function (mongoose: Mongoose) {
     async function connectToMongo() {
         try {
             await mongoose.connect(MONGO_URL, {
-                auth: {
-                    username: "farhad",
-                    password: "KTRjOcoilyWv5cyh"
-                }
+                // auth: {
+                //     username: "farhad",
+                //     password: "KTRjOcoilyWv5cyh"
+                // }
             });
         } catch (e) {
             console.error('mongoose connection err:', e);

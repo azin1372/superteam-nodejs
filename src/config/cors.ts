@@ -5,6 +5,12 @@ export const CorsConfig = {
         'http://localhost:3000',
         'http://localhost:3001',
         'http://localhost:5173',
+        'https://api.limaniexx.com',
+        'https://bubble.limaniexx.com',
+        'https://dd.limaniexx.com',
+
+
+
     ],
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204

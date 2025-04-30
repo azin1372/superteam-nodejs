@@ -9,10 +9,7 @@ import expressConfig from "./webserver/express.js";
 import { GetBubbleMap } from "./app/controller/bubble/index.js";
 import { MakeTokenData } from "./app/controller/coingecko/index.js";
 import dotenv from "dotenv"
-// import { takeScreenshot } from "./services/screenshot";
-// import { TokenData } from './services/tokenData';
-// import { QuickChart } from './services/quickchart';
-// import { TokenLinks } from './services/tokenLinks';
+
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -23,14 +20,14 @@ const server = HTTP.createServer(app);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, '../public')));
+// app.use(express.static(path.join(__dirname, '../public')));
 
 expressConfig(app, express);
 
 const Router = express.Router();
 
 Router.get("/", (req, res) => {
-  res.send("Express on Vercel");
+  res.send("Express is Running");
 });
 
 Router.get("/threat/considerations/:address", getThreatConsiderations);
@@ -45,7 +42,7 @@ app.use('/api', Router);
 
 
 
-// await mongoConnection(mongoose).connectToMongo();
+await mongoConnection(mongoose).connectToMongo();
 
 server.listen(PORT, () => {
   console.log("server starting...");
