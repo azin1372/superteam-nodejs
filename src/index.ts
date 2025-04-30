@@ -2,12 +2,12 @@ import express from "express";
 import HTTP from 'http';
 import { fileURLToPath } from 'url';
 import path from 'path';
-import { getThreatConsiderations } from "./controller/webacy/index.js";
+import { getThreatConsiderations } from "./app/controller/webacy/index.js";
 import mongoose from 'mongoose';
-import { mongoConnection } from './../database/mongo.js';
-import expressConfig from "../webserver/express.js";
-import { GetBubbleMap } from "./controller/bubble/index.js";
-import { MakeTokenData } from "./controller/coingecko/index.js";
+import { mongoConnection } from './database/mongo.js';
+import expressConfig from "./webserver/express.js";
+import { GetBubbleMap } from "./app/controller/bubble/index.js";
+import { MakeTokenData } from "./app/controller/coingecko/index.js";
 import dotenv from "dotenv"
 // import { takeScreenshot } from "./services/screenshot";
 // import { TokenData } from './services/tokenData';

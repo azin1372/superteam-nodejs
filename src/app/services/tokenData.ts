@@ -1,4 +1,4 @@
-import { ITokenData } from './../../types/types';
+import { ITokenData } from '../../types/types.js';
 import axios from "axios"
 import { urlJoin } from 'url-join-ts';
 import { CoingeckoConfig } from "../../config/coingecko.js";
