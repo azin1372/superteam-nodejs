@@ -45,7 +45,7 @@ app.use('/api', Router);
 
 
 
-await mongoConnection(mongoose).connectToMongo();
+// await mongoConnection(mongoose).connectToMongo();
 
 server.listen(PORT, () => {
   console.log("server starting...");
