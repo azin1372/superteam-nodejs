@@ -1,5 +1,5 @@
-Token Risk Scanner
-Welcome to Token Risk Scanner, a powerful tool designed to analyze the risk level of token smart contracts by providing detailed insights based on the contract address. Whether you're an investor, developer, or blockchain enthusiast, our tool helps you make informed decisions by evaluating potential risks associated with token contracts.
+Token Risk Scanner Backend
+Welcome to the Token Risk Scanner Backend, a robust Express.js-based API that powers the risk analysis of token smart contracts. This backend processes token contract addresses and provides detailed risk assessments by analyzing on-chain data, smart contract code, and transaction patterns. Designed for developers and blockchain analysts, it serves as the core engine for the Token Risk Scanner frontend.
 Table of Contents
 
 Features
@@ -9,75 +9,95 @@ Prerequisites
 Installation
 
 
-Usage
-Example
+API Usage
+Endpoints
+Example Request
+
+
 Contributing
 License
 Contact
 
 Features
 
-Risk Analysis: Get a comprehensive risk score based on contract code, transaction history, and other on-chain data.
-User-Friendly Interface: Simple web-based input for token contract addresses.
-Detailed Reports: Receive insights on vulnerabilities, suspicious patterns, and contract behavior.
-Real-Time Data: Powered by up-to-date blockchain data for accurate assessments.
-Multi-Chain Support: Compatible with Ethereum, Binance Smart Chain, and more (add specific chains if applicable).
+RESTful API: Provides endpoints to analyze token contract addresses and retrieve risk scores and reports.
+On-Chain Analysis: Integrates with blockchain nodes (e.g., Ethereum, BSC) to fetch real-time contract data.
+Risk Evaluation: Assesses smart contract vulnerabilities, transaction anomalies, and ownership risks.
+Scalable Architecture: Built with Express.js for high performance and easy integration.
+Extensible: Modular design for adding support for new blockchains or analysis metrics.
 
 How It Works
-Token Risk Scanner fetches on-chain data for a given token contract address and runs a series of automated checks, including:
+The backend receives a token contract address via API requests and performs the following:
 
-Code Audit: Analyzes the smart contract for known vulnerabilities (e.g., reentrancy, overflow).
-Transaction Patterns: Detects unusual activities like wash trading or rug-pull indicators.
-Ownership & Permissions: Checks for centralized control or risky admin privileges.
-External Dependencies: Evaluates risks from linked contracts or oracles.
+Data Fetching: Queries blockchain nodes or APIs (e.g., Etherscan, Infura) for contract code and transaction history.
+Risk Analysis:
+Audits contract code for vulnerabilities (e.g., reentrancy, unchecked calls).
+Analyzes transaction patterns for signs of manipulation or fraud.
+Evaluates ownership structure and external dependencies.
 
-The results are aggregated into a risk score and a detailed report, helping users understand the safety of the token.
+
+Response Generation: Returns a JSON object with a risk score and detailed report.
+
 Getting Started
 Prerequisites
 
-A modern web browser (Chrome, Firefox, or Safari recommended).
-An internet connection to access the tool at https://scan.limaniexx.com/.
-A valid token contract address (e.g., Ethereum ERC-20 contract address).
+Node.js: Version 14.x or higher.
+npm: Version 6.x or higher.
+Blockchain API Keys: Access to services like Infura, Alchemy, or Etherscan (configure in .env).
+Environment: A .env file with necessary configurations (see .env.example).
 
 Installation
-No installation is required! The tool is fully web-based and accessible via the link above. For developers interested in running a local version or contributing, follow these steps:
 
-Clone the Repository:git clone https://github.com/your-username/token-risk-scanner.git
+Clone the Repository:git clone https://github.com/your-username/token-risk-scanner-backend.git
 
 
-Install Dependencies:cd token-risk-scanner
+Install Dependencies:cd token-risk-scanner-backend
 npm install
 
 
-Run Locally:npm start
-
-The app will be available at http://localhost:3000.
-
-Usage
-
-Visit https://scan.limaniexx.com/.
-Enter a valid token contract address in the input field (e.g., 0x1234...abcd).
-Click Scan to initiate the analysis.
-Review the generated risk score and detailed report.
-
-Example
-Input:
-
-Contract Address: 0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984 (Uniswap UNI token)
-
-Output:
-
-Risk Score: Low (8/100)
-Summary: 
-No known vulnerabilities detected in the contract code.
-High transaction volume with no suspicious patterns.
-Decentralized governance with no single point of failure.
+Set Up Environment Variables:Create a .env file in the root directory and add:PORT=3000
+INFURA_API_KEY=your_infura_key
+ETHERSCAN_API_KEY=your_etherscan_key
+# Add other chain-specific keys if needed
 
 
-Recommendations: Safe for interaction, but always verify with external audits.
+Run the Server:npm start
+
+The server will run at http://localhost:3000.
+
+API Usage
+Endpoints
+
+POST /api/scan
+Description: Analyzes a token contract address and returns a risk assessment.
+Request Body:{
+  "contractAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+  "chain": "ethereum"
+}
+
+
+Response:{
+  "riskScore": 8,
+  "summary": {
+    "vulnerabilities": "None detected",
+    "transactionPatterns": "Normal",
+    "ownership": "Decentralized"
+  },
+  "recommendations": "Safe for interaction"
+}
+
+
+
+
+
+Example Request
+Using curl:
+curl -X POST http://localhost:3000/api/scan \
+-H "Content-Type: application/json" \
+-d '{"contractAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984", "chain": "ethereum"}'
 
 Contributing
-We welcome contributions from the community! To contribute:
+We welcome contributions to improve the backend! To contribute:
 
 Fork the repository.
 Create a new branch (git checkout -b feature/your-feature).
@@ -85,7 +105,7 @@ Make your changes and commit (git commit -m 'Add your feature').
 Push to the branch (git push origin feature/your-feature).
 Open a Pull Request.
 
-Please ensure your code follows our coding guidelines and includes tests where applicable.
+Please follow our coding guidelines and include tests for new features.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 Contact
@@ -96,4 +116,4 @@ Twitter: @TokenRiskScanner
 GitHub Issues: Submit an issue
 
 
-Built with 💪 by the Limaniexx Team
+Built with 💻 by the Limaniexx Backend Team
