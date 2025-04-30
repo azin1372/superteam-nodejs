@@ -92,7 +92,7 @@ Response:{
 
 Example Request
 Using curl:
-curl -X POST http://localhost:3000/api/scan \
+curl -X POST http://localhost:3000/api/threat/considerations/:address \
 -H "Content-Type: application/json" \
 -d '{"contractAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984", "chain": "ethereum"}'
 
